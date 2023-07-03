@@ -1,5 +1,5 @@
 from langchain.chains.question_answering import load_qa_chain
-from langchain.llms import OpenAI
+from langchain.chat_models import AzureChatOpenAI
 from langchain.callbacks import get_openai_callback
 from parameter_controller import ParameterController
 
@@ -48,6 +48,10 @@ class QAChainRunner:
         # initialise the model
         self.llm = OpenAI(
                         model_name=self.model_name,
+                        max_tokens=self.requested_max_model_tokens
+                        )
+        self.llm = AzureChatOpenAI(
+                        deployment_name=self.model_name,
                         max_tokens=self.requested_max_model_tokens
                         )
 

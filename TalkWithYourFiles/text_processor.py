@@ -95,7 +95,7 @@ class DefaultTextProcessor(TextProcessor):
         #### can this function be called without any chunks?
         if not chunks:
             return None
-        embeddings = OpenAIEmbeddings()
+        embeddings = OpenAIEmbeddings(deployment="text-embedding-ada-002", chunk_size=1)
         try:
             return FAISS.from_texts(chunks, embeddings)
         except Exception as e:
