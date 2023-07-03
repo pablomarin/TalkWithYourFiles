@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from flow_coordinator import FlowCoordinator
 from parameter_controller import ParameterController
@@ -149,6 +150,11 @@ def main():
     
     ##### HEADER
     st.header("Talk With Your Files")
+    
+    os.environ["OPENAI_API_BASE"] = os.environ["AZURE_OPENAI_ENDPOINT"] = "https://dallepinternal.openai.azure.com/"
+    os.environ["OPENAI_API_KEY"] = os.environ["AZURE_OPENAI_API_KEY"] = "1a57cc450faa4ddaabd8d5212e1f4fd8"
+    os.environ["OPENAI_API_VERSION"] = os.environ["AZURE_OPENAI_API_VERSION"] = "2023-03-15-preview"
+    os.environ["OPENAI_API_TYPE"] = "azure"
 
     ##### SIDEBAR
     st.sidebar.header("Talk With Your Files")
