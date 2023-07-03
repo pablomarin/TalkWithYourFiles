@@ -32,7 +32,7 @@ class ParameterController:
         self.register_parameter('displayed_max_response_tokens', int, 100, 'Maximum tokens for the chain response', min=1, max=16000)
         self.register_parameter('model_name', 
                                 str,
-                                "text-davinci-003", 
+                                "gpt-4", 
                                 "Model to be used in the qa_chain", 
                                 model_list=[
                                     {

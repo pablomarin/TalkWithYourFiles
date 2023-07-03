@@ -46,10 +46,6 @@ class QAChainRunner:
         self.requested_max_model_tokens = self.param_controller.get_parameter('requested_max_model_tokens')['value']
     
         # initialise the model
-        self.llm = OpenAI(
-                        model_name=self.model_name,
-                        max_tokens=self.requested_max_model_tokens
-                        )
         self.llm = AzureChatOpenAI(
                         deployment_name=self.model_name,
                         max_tokens=self.requested_max_model_tokens
